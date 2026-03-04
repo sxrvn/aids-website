@@ -7,6 +7,7 @@ import Publication from "@/components/conference/Publication";
 import Submission from "@/components/conference/Submission";
 import Committee from "@/components/conference/Committee";
 import About from "@/components/conference/About";
+import BrochureViewer from "@/components/conference/BrochureViewer";
 import Registration from "@/components/conference/Registration";
 import Contact from "@/components/conference/Contact";
 import Footer from "@/components/conference/Footer";
@@ -23,6 +24,7 @@ const Index = () => {
       <Submission />
       <Committee />
       <About />
+      <BrochureViewer />
       <Registration />
       <Contact />
       <Footer />
