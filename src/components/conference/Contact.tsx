@@ -29,7 +29,6 @@ const Contact = () => (
         >
           {[
             { icon: <MapPin size={18} strokeWidth={1.8} />, label: "Address", value: contactInfo.address, href: undefined },
-            { icon: <Phone size={18} strokeWidth={1.8} />, label: "Phone", value: contactInfo.phone, href: `tel:${contactInfo.phone}` },
             { icon: <Mail size={18} strokeWidth={1.8} />, label: "Email", value: contactInfo.email, href: `mailto:${contactInfo.email}` },
           ].map(({ icon, label, value, href }) => (
             <div
@@ -118,7 +117,7 @@ const Contact = () => (
         >
           <iframe
             title="Ajeenkya DY Patil School of Engineering Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5!2d73.92!3d18.59!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c14c56bfffff%3A0x3c3c3c3c3c3c3c3c!2sAjeenkya%20DY%20Patil%20School%20of%20Engineering!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="https://maps.google.com/maps?q=Dr.+D.+Y.+Patil+School+Of+Engineering,+Lohegaon,+Pune&t=&z=15&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}

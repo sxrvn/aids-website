@@ -102,11 +102,10 @@ export const socialLinks = {
 };
 
 export const contactInfo = {
-  phone: "+91 9673027788, +91 8983332994",
   email: "icniee2026@dypic.in",
   address: "Dr. DY Patil Technical Campus Lohegaon, Charholi (Bk), Via Lohegaon, Pune, Maharashtra, India. (020-35037922)",
   registrationLink: "https://forms.gle/csvUgS58MafT66tV7",
-  brochureLink: "https://adypsoe.in/",
+  brochureLink: "/brochure.pdf",
   cmtLink: "https://cmt3.research.microsoft.com/ICNIEE2026",
 };
 

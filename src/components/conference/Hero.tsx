@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, FileText } from "lucide-react";
 import { contactInfo } from "@/data/conferenceData";
 
+import logo1 from "@/assets/Logos/1.png";
+import logo2 from "@/assets/Logos/2.png";
+import logo3 from "@/assets/Logos/3.png";
+import logo4 from "@/assets/Logos/4.png";
+import logo5 from "@/assets/Logos/5.png";
+
 interface TimeLeft {
   days: number;
   hours: number;
@@ -38,7 +44,7 @@ const CountdownBox = ({ value, label }: { value: number; label: string }) => (
 );
 
 const Hero = () => {
-  const conferenceDate = new Date("2026-04-04T09:00:00+05:30");
+  const conferenceDate = new Date("2026-04-27T09:00:00+05:30");
 
   const calcTimeLeft = (): TimeLeft => {
     const diff = conferenceDate.getTime() - Date.now();
@@ -131,7 +137,7 @@ const Hero = () => {
             <span
               style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "2px", color: "rgba(180,210,255,0.7)", textTransform: "uppercase" }}
             >
-              4 April 2026 &nbsp;·&nbsp; Pune, India
+              27 & 28 April 2026 &nbsp;·&nbsp; Pune, India
             </span>
           </motion.div>
 
@@ -142,15 +148,17 @@ const Hero = () => {
 
           {/* Title */}
           <h1
-            className="font-bold text-white mb-5 max-w-4xl mx-auto"
+            className="font-bold text-white mb-5 max-w-5xl mx-auto"
             style={{
               fontSize: "clamp(2rem, 5.5vw, 4.25rem)",
-              lineHeight: 1.1,
+              lineHeight: 1.15,
               letterSpacing: "-0.5px",
             }}
           >
-            Recent Trends in{" "}
-            <span className="text-gradient">AI & Data Science</span>
+            Next Gen AI, <span className="text-gradient">Innovation</span>
+            <br className="hidden md:block" />
+            <span className="md:hidden"> </span>
+            <span className="text-gradient">and Engineering Excellence</span>
           </h1>
 
           <p
@@ -258,6 +266,34 @@ const Hero = () => {
               <Download size={13} className="shrink-0" />
               <span>Brochure</span>
             </a>
+          </motion.div>
+
+          {/* Logos Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75 }}
+            className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mt-12 mb-4"
+          >
+            {[logo1, logo2, logo3, logo4, logo5].map((logo, idx) => (
+              <img
+                key={idx}
+                src={logo}
+                alt={`Partner Logo ${idx + 1}`}
+                className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-all hover:scale-105 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+                style={{ filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.1))" }}
+              />
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="mt-8 text-center max-w-3xl mx-auto px-4"
+            style={{ fontSize: "11px", color: "rgba(180,210,255,0.4)", lineHeight: 1.6 }}
+          >
+            The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
           </motion.div>
         </motion.div>
       </div>
