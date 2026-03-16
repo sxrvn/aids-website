@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Style Guide — Dark Glassmorphism Tech UI</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-base:        #030d1f;
+    --bg-card:        rgba(255,255,255,0.04);
+    --bg-card-hover:  rgba(255,255,255,0.07);
+    --bg-winner:      rgba(30,100,255,0.1);
+
+    --border-default: rgba(100,180,255,0.18);
+    --border-active:  rgba(91,200,255,0.5);
+    --border-subtle:  rgba(100,180,255,0.1);
+
+    --accent-blue:    #1a7fff;
+    --accent-cyan:    #5bc8ff;
+    --accent-purple:  #a078ff;
+    --accent-teal:    #00c8b4;
+    --accent-red:     #ff6050;
+    --accent-green:   #4de896;
+
+    --text-primary:   #e8f4ff;
+    --text-secondary: rgba(180,210,255,0.5);
+    --text-muted:     rgba(120,170,255,0.45);
+    --text-label:     rgba(120,180,255,0.55);
+
+    --orb-primary:    rgba(30,100,255,0.45);
+    --orb-secondary:  rgba(0,180,255,0.3);
+
+    --font:           'Sora', sans-serif;
+    --radius-card:    18px;
+    --radius-icon:    13px;
+    --radius-pill:    30px;
+    --shadow-card:    0 4px 24px rgba(0,80,200,0.1), inset 0 1px 0 rgba(255,255,255,0.06);
+    --shadow-winner:  0 0 32px rgba(30,120,255,0.2), 0 0 80px rgba(30,120,255,0.08), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  body {
+    background: #020b1a;
+    color: var(--text-primary);
+    font-family: var(--font);
+    padding: 40px 20px 80px;
+    line-height: 1.6;
+  }
+
+  /* ─── Layout ──────────────────────────────────── */
+  .guide { max-width: 860px; margin: 0 auto; }
+
+  .section { margin-bottom: 60px; }
+  .section-title {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(100,180,255,0.6);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(100,180,255,0.12);
+  }
+
+  h1 {
+    font-size: 32px; font-weight: 800;
+    color: #fff; letter-spacing: -0.8px;
+    line-height: 1.1; margin-bottom: 10px;
+  }
+  h1 span {
+    background: linear-gradient(135deg, #5bc8ff, #1a7fff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 13px; color: var(--text-secondary); font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  /* ─── Color Swatches ──────────────────────────── */
+  .swatches { display: flex; flex-wrap: wrap; gap: 12px; }
+  .swatch {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--bg-card); border: 1px solid var(--border-default);
+    border-radius: 12px; padding: 10px 16px; min-width: 220px;
+    backdrop-filter: blur(12px);
+  }
+  .swatch-dot { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
+  .swatch-info {}
+  .swatch-name { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+  .swatch-hex  { font-size: 10px; color: var(--text-muted); font-weight: 400; letter-spacing: 1px; }
+
+  /* ─── Orb Demo ────────────────────────────────── */
+  .orb-demo {
+    position: relative; height: 220px; border-radius: 20px;
+    background: var(--bg-base); overflow: hidden;
+    border: 1px solid var(--border-subtle);
+  }
+  .orb-demo .orb { position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; }
+  .orb-demo .o1 { width:260px;height:260px; background:radial-gradient(circle,var(--orb-primary) 0%,transparent 70%); top:-80px;left:-60px; }
+  .orb-demo .o2 { width:220px;height:220px; background:radial-gradient(circle,var(--orb-secondary) 0%,transparent 70%); bottom:-60px;right:-40px; }
+  .orb-demo .o3 { width:180px;height:180px; background:radial-gradient(circle,rgba(20,60,220,0.25) 0%,transparent 70%); top:60px;right:200px; }
+  .orb-demo-grid {
+    position:absolute;inset:0;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+    background-size: 40px 40px;
+  }
+  .orb-demo-label {
+    position:absolute;bottom:16px;left:20px;
+    font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(100,180,255,0.5);
+  }
+
+  /* ─── Typography ──────────────────────────────── */
+  .type-row { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(100,180,255,0.06); }
+  .type-label { font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px; }
+  .type-eyebrow { font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(100,180,255,0.7); }
+  .type-heading { font-size:26px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.2; }
+  .type-heading span { background:linear-gradient(135deg,#5bc8ff,#1a7fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent; }
+  .type-body { font-size:13px;color:var(--text-secondary);font-weight:300; }
+  .type-card-label { font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(120,180,255,0.55); }
+  .type-card-title { font-size:13.5px;font-weight:700;color:#e8f4ff; }
+  .type-card-desc  { font-size:11px;color:rgba(160,200,255,0.45);font-weight:300; }
+  .type-meta { font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(150,210,255,0.9); }
+  .type-footer { font-size:11px;color:var(--text-muted);letter-spacing:1px; }
+  .spec-tag {
+    display:inline-block; background:rgba(30,100,255,0.15);
+    border:1px solid rgba(80,160,255,0.2); border-radius:6px;
+    padding:2px 8px; font-size:10px; color:rgba(140,200,255,0.7);
+    font-family:monospace; margin-left:8px; vertical-align:middle;
+  }
+
+  /* ─── Card Demo ───────────────────────────────── */
+  .cards-demo { display:flex;flex-direction:column;gap:12px; }
+  .demo-card {
+    background: var(--bg-card); border:1px solid var(--border-default);
+    border-radius: var(--radius-card); padding:16px 18px;
+    display:flex;align-items:center;gap:14px;
+    backdrop-filter:blur(20px); position:relative; overflow:hidden;
+    box-shadow: var(--shadow-card); transition:all 0.3s ease;
+  }
+  .demo-card::before {
+    content:''; position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(100,180,255,0.06) 0%,transparent 60%);
+    border-radius:inherit; pointer-events:none;
+  }
+  .demo-card:hover { border-color:rgba(100,180,255,0.45);background:var(--bg-card-hover); }
+  .demo-icon {
+    width:46px;height:46px;border-radius:var(--radius-icon);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .demo-icon.blue   { background:rgba(30,120,255,0.2);  box-shadow:0 0 16px rgba(30,120,255,0.3); }
+  .demo-icon.purple { background:rgba(130,60,255,0.2);  box-shadow:0 0 16px rgba(130,60,255,0.3); }
+  .demo-icon.teal   { background:rgba(0,200,180,0.2);   box-shadow:0 0 16px rgba(0,200,180,0.3); }
+  .demo-icon.red    { background:rgba(255,70,50,0.2);   box-shadow:0 0 16px rgba(255,70,50,0.3); }
+  .demo-icon.green  { background:rgba(30,220,100,0.2);  box-shadow:0 0 16px rgba(30,220,100,0.3); }
+
+  /* Winner card */
+  .winner-demo {
+    background:rgba(30,100,255,0.1); border:1.5px solid rgba(91,200,255,0.5);
+    border-radius:20px; padding:18px; position:relative; overflow:hidden;
+    box-shadow: var(--shadow-winner);
+  }
+  .winner-demo::before {
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(91,200,255,0.1) 0%,transparent 55%);
+    border-radius:inherit; pointer-events:none;
+  }
+  .bar-track { height:7px;border-radius:99px;background:rgba(255,255,255,0.07);overflow:hidden;margin-top:10px; }
+  .bar-fill { height:100%;border-radius:99px;background:linear-gradient(90deg,#1a7fff,#5bc8ff);box-shadow:0 0 10px rgba(91,200,255,0.6);width:40%; }
+  .mini-track { width:52px;height:4px;border-radius:99px;background:rgba(255,255,255,0.06);overflow:hidden; }
+  .mini-fill { height:100%;border-radius:99px;background:rgba(150,190,255,0.25); }
+
+  /* ─── Badge Demo ──────────────────────────────── */
+  .badges { display:flex;flex-wrap:wrap;gap:10px;align-items:center; }
+  .badge {
+    border-radius:var(--radius-pill); padding:5px 14px;
+    font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+    backdrop-filter:blur(10px);
+  }
+  .badge-blue   { background:linear-gradient(135deg,rgba(30,100,255,0.35),rgba(0,180,255,0.2)); border:1px solid rgba(80,160,255,0.3); color:rgba(150,210,255,0.9); }
+  .badge-green  { background:linear-gradient(135deg,rgba(30,200,100,0.25),rgba(0,180,100,0.15)); border:1px solid rgba(50,220,120,0.35); color:rgba(80,230,150,0.95); }
+  .badge-purple { background:linear-gradient(135deg,rgba(130,60,255,0.3),rgba(100,30,200,0.15)); border:1px solid rgba(150,100,255,0.3); color:rgba(190,150,255,0.95); }
+
+  /* ─── Pulse Dot ───────────────────────────────── */
+  .pulse-dot { width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#5bc8ff,#1a7fff);box-shadow:0 0 8px rgba(90,200,255,0.8);animation:pulse 2s ease-in-out infinite;display:inline-block;margin-right:6px; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
+
+  /* ─── Divider ─────────────────────────────────── */
+  .divider-demo { width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(80,160,255,0.4),transparent); }
+
+  /* ─── Code Block ──────────────────────────────── */
+  .code-block {
+    background: rgba(255,255,255,0.03); border:1px solid rgba(100,180,255,0.12);
+    border-radius:14px; padding:20px 24px; font-family:monospace;
+    font-size:12px; line-height:1.8; overflow-x:auto;
+    color:rgba(180,220,255,0.8);
+  }
+  .code-block .ck  { color:#a078ff; }  /* key */
+  .code-block .cv  { color:#5bc8ff; }  /* value */
+  .code-block .cc  { color:rgba(120,160,255,0.4); } /* comment */
+
+  /* ─── Spec Grid ───────────────────────────────── */
+  .spec-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+  .spec-card {
+    background:var(--bg-card); border:1px solid var(--border-subtle);
+    border-radius:14px; padding:16px 18px;
+  }
+  .spec-key { font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px; }
+  .spec-val { font-size:13px;font-weight:700;color:var(--text-primary); }
+  .spec-val.mono { font-family:monospace;font-size:12px;color:var(--accent-cyan); }
+
+  /* ─── Shadow & Glow Ref ────────────────────────── */
+  .glow-samples { display:flex;gap:16px;flex-wrap:wrap; }
+  .glow-box {
+    width:120px;height:80px;border-radius:16px;display:flex;
+    align-items:center;justify-content:center;
+    font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  }
+  .glow-blue   { background:rgba(30,120,255,0.15);  border:1px solid rgba(30,120,255,0.4);  box-shadow:0 0 24px rgba(30,120,255,0.3);  color:rgba(140,200,255,0.9); }
+  .glow-purple { background:rgba(130,60,255,0.15);  border:1px solid rgba(130,60,255,0.4);  box-shadow:0 0 24px rgba(130,60,255,0.3);  color:rgba(190,150,255,0.9); }
+  .glow-teal   { background:rgba(0,200,180,0.15);   border:1px solid rgba(0,200,180,0.4);   box-shadow:0 0 24px rgba(0,200,180,0.3);   color:rgba(100,230,210,0.9); }
+  .glow-red    { background:rgba(255,70,50,0.15);   border:1px solid rgba(255,70,50,0.4);   box-shadow:0 0 24px rgba(255,70,50,0.3);   color:rgba(255,160,150,0.9); }
+  .glow-green  { background:rgba(30,220,100,0.15);  border:1px solid rgba(30,220,100,0.4);  box-shadow:0 0 24px rgba(30,220,100,0.3);  color:rgba(100,240,160,0.9); }
+
+  .row { display:flex;align-items:center;gap:10px;margin-bottom:8px; }
+  .row .label { font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);min-width:100px; }
+</style>
+</head>
+<body>
+<div class="guide">
+
+  <h1>Dark <span>Glassmorphism</span><br>Tech UI — Style Guide</h1>
+  <p class="hero-sub">Complete reference for the AWS poll story design system · Replicate anywhere</p>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 1. PHILOSOPHY -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">01 · Design Philosophy</div>
+    <div class="spec-grid">
+      <div class="spec-card"><div class="spec-key">Aesthetic Direction</div><div class="spec-val">Dark Tech Glassmorphism</div></div>
+      <div class="spec-card"><div class="spec-key">Vibe</div><div class="spec-val">AWS re:Invent meets Cyberpunk Dashboard</div></div>
+      <div class="spec-card"><div class="spec-key">Tone</div><div class="spec-val">Premium · Techy · High Contrast</div></div>
+      <div class="spec-card"><div class="spec-key">Personality</div><div class="spec-val">Confident · Clean · Dark-native</div></div>
+    </div>
+    <br>
+    <div class="spec-card" style="margin-top:0">
+      <div class="spec-key" style="margin-bottom:10px">Core Principles</div>
+      <div style="font-size:13px;color:var(--text-secondary);font-weight:300;line-height:2;">
+        · Everything lives on a <strong style="color:var(--text-primary);font-weight:600;">deep navy/charcoal background</strong> — never white, never grey<br>
+        · Depth is created through <strong style="color:var(--text-primary);font-weight:600;">layered blur + opacity</strong> not solid fills<br>
+        · Color is used for <strong style="color:var(--text-primary);font-weight:600;">meaning and category</strong> not decoration<br>
+        · Glows and borders are <strong style="color:var(--text-primary);font-weight:600;">always semi-transparent</strong>, never solid<br>
+        · Hierarchy is built through <strong style="color:var(--text-primary);font-weight:600;">opacity and weight</strong>, not size alone<br>
+        · No emojis — use <strong style="color:var(--text-primary);font-weight:600;">clean SVG line icons</strong> only
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 2. COLOR SYSTEM -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">02 · Color System</div>
+
+    <div class="type-label" style="margin-bottom:12px">Backgrounds</div>
+    <div class="swatches" style="margin-bottom:24px">
+      <div class="swatch"><div class="swatch-dot" style="background:#020b1a;border:1px solid rgba(255,255,255,0.1)"></div><div class="swatch-info"><div class="swatch-name">Page Base</div><div class="swatch-hex">#020B1A</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#030d1f;border:1px solid rgba(255,255,255,0.1)"></div><div class="swatch-info"><div class="swatch-name">Story / Card Base</div><div class="swatch-hex">#030D1F</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:rgba(255,255,255,0.04);border:1px solid rgba(100,180,255,0.18)"></div><div class="swatch-info"><div class="swatch-name">Glass Card Fill</div><div class="swatch-hex">rgba(255,255,255, 0.04)</div></div></div>
+    </div>
+
+    <div class="type-label" style="margin-bottom:12px">Accent Colors</div>
+    <div class="swatches" style="margin-bottom:24px">
+      <div class="swatch"><div class="swatch-dot" style="background:linear-gradient(135deg,#5bc8ff,#1a7fff)"></div><div class="swatch-info"><div class="swatch-name">Primary Blue</div><div class="swatch-hex">#1A7FFF → #5BC8FF</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#a078ff"></div><div class="swatch-info"><div class="swatch-name">Purple</div><div class="swatch-hex">#A078FF</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#00c8b4"></div><div class="swatch-info"><div class="swatch-name">Teal</div><div class="swatch-hex">#00C8B4</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#ff6050"></div><div class="swatch-info"><div class="swatch-name">Red</div><div class="swatch-hex">#FF6050</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#4de896"></div><div class="swatch-info"><div class="swatch-name">Success Green</div><div class="swatch-hex">#4DE896</div></div></div>
+    </div>
+
+    <div class="type-label" style="margin-bottom:12px">Text Hierarchy</div>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-dot" style="background:#ffffff"></div><div class="swatch-info"><div class="swatch-name">Heading</div><div class="swatch-hex">#FFFFFF</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:#e8f4ff"></div><div class="swatch-info"><div class="swatch-name">Body / Card Title</div><div class="swatch-hex">#E8F4FF</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:rgba(180,210,255,0.5)"></div><div class="swatch-info"><div class="swatch-name">Subtitle</div><div class="swatch-hex">rgba(180,210,255, 0.5)</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:rgba(120,180,255,0.55)"></div><div class="swatch-info"><div class="swatch-name">Label / Eyebrow</div><div class="swatch-hex">rgba(120,180,255, 0.55)</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:rgba(120,170,255,0.45)"></div><div class="swatch-info"><div class="swatch-name">Footer / Muted</div><div class="swatch-hex">rgba(120,170,255, 0.45)</div></div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 3. TYPOGRAPHY -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">03 · Typography</div>
+
+    <div class="type-row">
+      <div class="type-label">Font Family <span class="spec-tag">Sora from Google Fonts</span></div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:4px">Weights used: 300 · 400 · 600 · 700 · 800</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Eyebrow / Section Label <span class="spec-tag">11px · 600 · 3px tracking · UPPERCASE</span></div>
+      <div class="type-eyebrow">Hands-On Session · Month End</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Heading <span class="spec-tag">26px · 800 · -0.5px tracking</span></div>
+      <div class="type-heading">Which one are we <span>building on EC2?</span></div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Subtitle <span class="spec-tag">13px · 300 · 0.3px tracking</span></div>
+      <div class="type-body">Vote above · One topic. One session. All hands-on.</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Card Label <span class="spec-tag">10px · 600 · 2px tracking · UPPERCASE</span></div>
+      <div class="type-card-label">Option A</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Card Title <span class="spec-tag">13.5px · 700 · -0.1px tracking</span></div>
+      <div class="type-card-title">MoltBot / ClawDBot</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Card Description <span class="spec-tag">11px · 300</span></div>
+      <div class="type-card-desc">Run Your Own Autonomous AI Agent on EC2</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Badge / Pill Text <span class="spec-tag">10px · 700 · 1.5px tracking · UPPERCASE</span></div>
+      <div class="type-meta">Live Poll</div>
+    </div>
+
+    <div class="type-row" style="border:none">
+      <div class="type-label">Footer Text <span class="spec-tag">11px · 400 · 1px tracking</span></div>
+      <div class="type-footer">Session drops <strong style="color:rgba(160,210,255,0.65);font-weight:600">this month end</strong> · Stay tuned</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 4. BACKGROUND SYSTEM -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">04 · Background System — Orbs + Grid</div>
+    <div class="orb-demo">
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+      <div class="orb o3"></div>
+      <div class="orb-demo-grid"></div>
+      <div class="orb-demo-label">3 radial orbs + subtle grid overlay</div>
+    </div>
+    <br>
+    <div class="code-block">
+<span class="cc">/* Orb 1 — top left primary glow */</span>
+<span class="ck">background:</span> <span class="cv">radial-gradient(circle, rgba(30,100,255, 0.45) 0%, transparent 70%)</span>;
+<span class="ck">width:</span> <span class="cv">320px</span>; <span class="ck">height:</span> <span class="cv">320px</span>; <span class="ck">filter:</span> <span class="cv">blur(80px)</span>;
+<span class="ck">position:</span> <span class="cv">absolute</span>; <span class="ck">top:</span> <span class="cv">-80px</span>; <span class="ck">left:</span> <span class="cv">-80px</span>;
+
+<span class="cc">/* Orb 2 — bottom right secondary glow */</span>
+<span class="ck">background:</span> <span class="cv">radial-gradient(circle, rgba(0,180,255, 0.3) 0%, transparent 70%)</span>;
+<span class="ck">width:</span> <span class="cv">280px</span>; <span class="ck">height:</span> <span class="cv">280px</span>; <span class="ck">filter:</span> <span class="cv">blur(80px)</span>;
+
+<span class="cc">/* Grid Overlay — subtle depth */</span>
+<span class="ck">background-image:</span>
+  <span class="cv">linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px)</span>,
+  <span class="cv">linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)</span>;
+<span class="ck">background-size:</span> <span class="cv">40px 40px</span>;
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 5. CARD COMPONENTS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">05 · Card Components</div>
+
+    <div class="type-label" style="margin-bottom:12px">Standard Glass Card</div>
+    <div class="cards-demo" style="margin-bottom:28px">
+      <div class="demo-card">
+        <div class="demo-icon blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5bc8ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="11"/></svg>
+        </div>
+        <div>
+          <div class="type-card-label">Option A · Blue</div>
+          <div class="type-card-title">MoltBot / ClawDBot</div>
+          <div class="type-card-desc">Run Your Own Autonomous AI Agent on EC2</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-icon purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a078ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </div>
+        <div>
+          <div class="type-card-label">Option B · Purple</div>
+          <div class="type-card-title">n8n Automations</div>
+          <div class="type-card-desc">Free Automation Workflows on EC2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-label" style="margin-bottom:12px">Winner / Highlighted Card (Results)</div>
+    <div class="winner-demo" style="margin-bottom:10px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+        <div class="demo-icon blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5bc8ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/></svg>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(80,230,150,0.9);display:flex;align-items:center;gap:6px;margin-bottom:3px">
+            <span style="width:6px;height:6px;border-radius:50%;background:#4de896;box-shadow:0 0 6px #4de896;display:inline-block"></span>
+            Winner — Option A
+          </div>
+          <div class="type-card-title">MoltBot / ClawDBot</div>
+          <div class="type-card-desc">Run Your Own Autonomous AI Agent on EC2</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <span style="font-size:10px;font-weight:600;color:rgba(180,220,255,0.6);letter-spacing:1px">VOTES</span>
+        <span style="font-size:14px;font-weight:800;color:#5bc8ff">40%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill"></div></div>
+    </div>
+
+    <div class="code-block">
+<span class="cc">/* Standard Glass Card */</span>
+<span class="ck">background:</span>       <span class="cv">rgba(255,255,255, 0.04)</span>;
+<span class="ck">border:</span>           <span class="cv">1px solid rgba(100,180,255, 0.18)</span>;
+<span class="ck">border-radius:</span>    <span class="cv">18px</span>;
+<span class="ck">backdrop-filter:</span>  <span class="cv">blur(20px)</span>;
+<span class="ck">box-shadow:</span>       <span class="cv">0 4px 24px rgba(0,80,200, 0.1), inset 0 1px 0 rgba(255,255,255, 0.06)</span>;
+<span class="cc">/* Hover state */</span>
+<span class="ck">border-color:</span>     <span class="cv">rgba(100,180,255, 0.45)</span>;
+<span class="ck">background:</span>       <span class="cv">rgba(255,255,255, 0.07)</span>;
+
+<span class="cc">/* Inner shimmer pseudo-element */</span>
+<span class="ck">background:</span>       <span class="cv">linear-gradient(135deg, rgba(100,180,255,0.06) 0%, transparent 60%)</span>;
+
+<span class="cc">/* Winner Card */</span>
+<span class="ck">background:</span>       <span class="cv">rgba(30,100,255, 0.1)</span>;
+<span class="ck">border:</span>           <span class="cv">1.5px solid rgba(91,200,255, 0.5)</span>;
+<span class="ck">box-shadow:</span>       <span class="cv">0 0 32px rgba(30,120,255,0.2), 0 0 80px rgba(30,120,255,0.08)</span>;
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 6. ICON SYSTEM -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">06 · Icon System</div>
+    <div style="display:flex;gap:14px;margin-bottom:20px">
+      <div class="demo-icon blue" style="width:54px;height:54px;border-radius:15px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5bc8ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/></svg>
+      </div>
+      <div class="demo-icon purple" style="width:54px;height:54px;border-radius:15px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a078ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      </div>
+      <div class="demo-icon teal" style="width:54px;height:54px;border-radius:15px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00c8b4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+      </div>
+      <div class="demo-icon red" style="width:54px;height:54px;border-radius:15px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6050" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><polygon points="10,11 10,17 16,14"/></svg>
+      </div>
+      <div class="demo-icon green" style="width:54px;height:54px;border-radius:15px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4de896" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+    </div>
+    <div class="code-block">
+<span class="cc">/* Icon Wrap — per color */</span>
+<span class="ck">width:</span> <span class="cv">46px</span>; <span class="ck">height:</span> <span class="cv">46px</span>; <span class="ck">border-radius:</span> <span class="cv">13px</span>;
+
+<span class="cc">/* Blue */</span>  <span class="ck">background:</span> <span class="cv">rgba(30,120,255, 0.2)</span>;  <span class="ck">box-shadow:</span> <span class="cv">0 0 16px rgba(30,120,255, 0.3)</span>;
+<span class="cc">/* Purple */</span><span class="ck">background:</span> <span class="cv">rgba(130,60,255, 0.2)</span>;  <span class="ck">box-shadow:</span> <span class="cv">0 0 16px rgba(130,60,255, 0.3)</span>;
+<span class="cc">/* Teal */</span>  <span class="ck">background:</span> <span class="cv">rgba(0,200,180, 0.2)</span>;   <span class="ck">box-shadow:</span> <span class="cv">0 0 16px rgba(0,200,180, 0.3)</span>;
+<span class="cc">/* Red */</span>   <span class="ck">background:</span> <span class="cv">rgba(255,70,50, 0.2)</span>;   <span class="ck">box-shadow:</span> <span class="cv">0 0 16px rgba(255,70,50, 0.3)</span>;
+<span class="cc">/* Green */</span> <span class="ck">background:</span> <span class="cv">rgba(30,220,100, 0.2)</span>;  <span class="ck">box-shadow:</span> <span class="cv">0 0 16px rgba(30,220,100, 0.3)</span>;
+
+<span class="cc">/* SVG Icon Style */</span>
+<span class="ck">fill:</span> <span class="cv">none</span>; <span class="ck">stroke-width:</span> <span class="cv">1.8</span>; <span class="ck">stroke-linecap:</span> <span class="cv">round</span>; <span class="ck">stroke-linejoin:</span> <span class="cv">round</span>;
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 7. BADGES & PILLS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">07 · Badges & Status Pills</div>
+    <div class="badges" style="margin-bottom:20px">
+      <span class="badge badge-blue">Live Poll</span>
+      <span class="badge badge-green">Results Are In</span>
+      <span class="badge badge-purple">AWS EC2</span>
+      <span>
+        <span class="pulse-dot"></span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(120,180,255,0.6)">AWS EC2</span>
+      </span>
+    </div>
+    <div class="code-block">
+<span class="cc">/* Pill Badge */</span>
+<span class="ck">border-radius:</span> <span class="cv">30px</span>; <span class="ck">padding:</span> <span class="cv">5px 12px</span>;
+<span class="ck">font-size:</span> <span class="cv">10px</span>; <span class="ck">font-weight:</span> <span class="cv">700</span>; <span class="ck">letter-spacing:</span> <span class="cv">1.5px</span>; <span class="ck">text-transform:</span> <span class="cv">uppercase</span>;
+<span class="ck">backdrop-filter:</span> <span class="cv">blur(10px)</span>;
+
+<span class="cc">/* Blue variant */</span>
+<span class="ck">background:</span> <span class="cv">linear-gradient(135deg, rgba(30,100,255,0.35), rgba(0,180,255,0.2))</span>;
+<span class="ck">border:</span>     <span class="cv">1px solid rgba(80,160,255, 0.3)</span>;
+<span class="ck">color:</span>      <span class="cv">rgba(150,210,255, 0.9)</span>;
+
+<span class="cc">/* Green variant (results / success) */</span>
+<span class="ck">background:</span> <span class="cv">linear-gradient(135deg, rgba(30,200,100,0.25), rgba(0,180,100,0.15))</span>;
+<span class="ck">border:</span>     <span class="cv">1px solid rgba(50,220,120, 0.35)</span>;
+<span class="ck">color:</span>      <span class="cv">rgba(80,230,150, 0.95)</span>;
+
+<span class="cc">/* Pulse dot animation */</span>
+<span class="ck">animation:</span> <span class="cv">pulse 2s ease-in-out infinite</span>;
+<span class="cv">@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 8. GLOW REFERENCE -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">08 · Glow & Shadow Reference</div>
+    <div class="glow-samples" style="margin-bottom:20px">
+      <div class="glow-box glow-blue">Blue</div>
+      <div class="glow-box glow-purple">Purple</div>
+      <div class="glow-box glow-teal">Teal</div>
+      <div class="glow-box glow-red">Red</div>
+      <div class="glow-box glow-green">Green</div>
+    </div>
+    <div class="code-block">
+<span class="cc">/* Card default shadow */</span>
+<span class="ck">box-shadow:</span> <span class="cv">0 4px 24px rgba(0,80,200, 0.1), inset 0 1px 0 rgba(255,255,255, 0.06)</span>;
+
+<span class="cc">/* Winner / focused card */</span>
+<span class="ck">box-shadow:</span> <span class="cv">0 0 32px rgba(30,120,255, 0.2), 0 0 80px rgba(30,120,255, 0.08), inset 0 1px 0 rgba(255,255,255, 0.1)</span>;
+
+<span class="cc">/* Icon glow — plug in the accent rgba */</span>
+<span class="ck">box-shadow:</span> <span class="cv">0 0 16px rgba(R, G, B, 0.3)</span>;
+
+<span class="cc">/* Text glow (sparingly) */</span>
+<span class="ck">text-shadow:</span> <span class="cv">0 0 12px rgba(91,200,255, 0.6)</span>;
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 9. DIVIDER + SPACING -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">09 · Dividers & Spacing</div>
+    <div style="margin-bottom:16px">
+      <div class="type-label" style="margin-bottom:10px">Gradient Divider</div>
+      <div class="divider-demo"></div>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card"><div class="spec-key">Card Gap</div><div class="spec-val mono">gap: 16px</div></div>
+      <div class="spec-card"><div class="spec-key">Card Padding</div><div class="spec-val mono">16px 18px</div></div>
+      <div class="spec-card"><div class="spec-key">Card Radius</div><div class="spec-val mono">border-radius: 18px</div></div>
+      <div class="spec-card"><div class="spec-key">Icon Radius</div><div class="spec-val mono">border-radius: 13px</div></div>
+      <div class="spec-card"><div class="spec-key">Story Padding</div><div class="spec-val mono">88px 28px 180px</div></div>
+      <div class="spec-card"><div class="spec-key">Divider Width</div><div class="spec-val mono">60px · 1px height</div></div>
+    </div>
+    <br>
+    <div class="code-block">
+<span class="cc">/* Gradient Divider */</span>
+<span class="ck">width:</span> <span class="cv">60px</span>; <span class="ck">height:</span> <span class="cv">1px</span>;
+<span class="ck">background:</span> <span class="cv">linear-gradient(90deg, transparent, rgba(80,160,255,0.4), transparent)</span>;
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 10. DO / DON'T -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">10 · Do's & Don'ts</div>
+    <div class="spec-grid">
+      <div class="spec-card" style="border-color:rgba(30,220,100,0.2)">
+        <div class="spec-key" style="color:rgba(80,230,150,0.7)">Do</div>
+        <div style="font-size:12.5px;color:var(--text-secondary);font-weight:300;line-height:2.2">
+          · Use deep navy base (#030d1f)<br>
+          · Layer orbs with blur(80px)<br>
+          · Semi-transparent borders only<br>
+          · SVG line icons, stroke-width 1.8<br>
+          · Gradient text for hero headings<br>
+          · letter-spacing on all labels<br>
+          · backdrop-filter on cards<br>
+          · Animate with pulse / fade only<br>
+          · Use color to encode meaning
+        </div>
+      </div>
+      <div class="spec-card" style="border-color:rgba(255,70,50,0.2)">
+        <div class="spec-key" style="color:rgba(255,140,130,0.7)">Don't</div>
+        <div style="font-size:12.5px;color:var(--text-secondary);font-weight:300;line-height:2.2">
+          · No white or grey backgrounds<br>
+          · No solid opaque borders<br>
+          · No emojis in UI elements<br>
+          · No more than 5 accent colors<br>
+          · No flat non-blurred cards<br>
+          · No pixel fonts or serif<br>
+          · No bold text as decoration<br>
+          · No pure black (#000) anywhere<br>
+          · No more than 3 orbs per screen
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 11. CSS VARIABLES STARTER -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">11 · CSS Variables — Drop-in Starter</div>
+    <div class="code-block">
+<span class="ck">:root {</span>
+  <span class="cc">/* Backgrounds */</span>
+  <span class="ck">--bg-base:</span>          <span class="cv">#030d1f</span>;
+  <span class="ck">--bg-page:</span>          <span class="cv">#020b1a</span>;
+  <span class="ck">--bg-card:</span>          <span class="cv">rgba(255,255,255, 0.04)</span>;
+  <span class="ck">--bg-card-hover:</span>    <span class="cv">rgba(255,255,255, 0.07)</span>;
+  <span class="ck">--bg-winner:</span>        <span class="cv">rgba(30,100,255, 0.1)</span>;
+
+  <span class="cc">/* Borders */</span>
+  <span class="ck">--border-default:</span>   <span class="cv">rgba(100,180,255, 0.18)</span>;
+  <span class="ck">--border-active:</span>    <span class="cv">rgba(91,200,255, 0.5)</span>;
+  <span class="ck">--border-subtle:</span>    <span class="cv">rgba(100,180,255, 0.1)</span>;
+
+  <span class="cc">/* Accents */</span>
+  <span class="ck">--accent-blue:</span>      <span class="cv">#1a7fff</span>;
+  <span class="ck">--accent-cyan:</span>      <span class="cv">#5bc8ff</span>;
+  <span class="ck">--accent-purple:</span>    <span class="cv">#a078ff</span>;
+  <span class="ck">--accent-teal:</span>      <span class="cv">#00c8b4</span>;
+  <span class="ck">--accent-red:</span>       <span class="cv">#ff6050</span>;
+  <span class="ck">--accent-green:</span>     <span class="cv">#4de896</span>;
+
+  <span class="cc">/* Text */</span>
+  <span class="ck">--text-primary:</span>     <span class="cv">#e8f4ff</span>;
+  <span class="ck">--text-secondary:</span>   <span class="cv">rgba(180,210,255, 0.5)</span>;
+  <span class="ck">--text-muted:</span>       <span class="cv">rgba(120,170,255, 0.45)</span>;
+  <span class="ck">--text-label:</span>       <span class="cv">rgba(120,180,255, 0.55)</span>;
+
+  <span class="cc">/* Shadows */</span>
+  <span class="ck">--shadow-card:</span>      <span class="cv">0 4px 24px rgba(0,80,200,0.1), inset 0 1px 0 rgba(255,255,255,0.06)</span>;
+  <span class="ck">--shadow-winner:</span>    <span class="cv">0 0 32px rgba(30,120,255,0.2), 0 0 80px rgba(30,120,255,0.08)</span>;
+
+  <span class="cc">/* Layout */</span>
+  <span class="ck">--radius-card:</span>      <span class="cv">18px</span>;
+  <span class="ck">--radius-icon:</span>      <span class="cv">13px</span>;
+  <span class="ck">--radius-pill:</span>      <span class="cv">30px</span>;
+  <span class="ck">--font:</span>             <span class="cv">'Sora', sans-serif</span>;
+<span class="ck">}</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
