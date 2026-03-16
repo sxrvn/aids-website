@@ -141,6 +141,24 @@ const Hero = () => {
             </span>
           </motion.div>
 
+          {/* Logos Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mb-8 sm:mb-10"
+          >
+            {[logo1, logo2, logo3, logo4, logo5].map((logo, idx) => (
+              <img
+                key={idx}
+                src={logo}
+                alt={`Partner Logo ${idx + 1}`}
+                className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-all hover:scale-105 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+                style={{ filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.1))" }}
+              />
+            ))}
+          </motion.div>
+
           {/* Eyebrow */}
           <div className="eyebrow mb-3" style={{ color: "rgba(100,180,255,0.65)" }}>
             International Conference
@@ -266,24 +284,6 @@ const Hero = () => {
               <Download size={13} className="shrink-0" />
               <span>Brochure</span>
             </a>
-          </motion.div>
-
-          {/* Logos Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75 }}
-            className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mt-12 mb-4"
-          >
-            {[logo1, logo2, logo3, logo4, logo5].map((logo, idx) => (
-              <img
-                key={idx}
-                src={logo}
-                alt={`Partner Logo ${idx + 1}`}
-                className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-all hover:scale-105 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-                style={{ filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.1))" }}
-              />
-            ))}
           </motion.div>
 
           <motion.div
