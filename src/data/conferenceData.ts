@@ -62,6 +62,7 @@ export const advisoryCommittee = [
   { name: "Dr. Lalit Wadhawa", affiliation: "ADYPU, Pune" },
   { name: "Dr. Anil Deshmane", affiliation: "Principal, BIGCOE, Solapur" },
   { name: "Dr. Neha Gupta", affiliation: "Dy.Director, CSIT, Symbiosis University of Applied Sciences, Indore" },
+  { name: "Dr. Nagashree N.", affiliation: "HOD & Associate Professor, SVIT, Bengaluru" },
 ];
 
 export const organizingCommittee = [
@@ -104,7 +105,7 @@ export const socialLinks = {
 export const contactInfo = {
   email: "icniee2026@dypic.in",
   address: "Dr. DY Patil Technical Campus Lohegaon, Charholi (Bk), Via Lohegaon, Pune, Maharashtra, India. (020-35037922)",
-  registrationLink: "https://forms.gle/csvUgS58MafT66tV7",
+  registrationLink: "https://forms.gle/NTYoNtAsQXCZXr8Y6",
   brochureLink: "/brochure.pdf",
   cmtLink: "https://cmt3.research.microsoft.com/ICNIEE2026",
 };
