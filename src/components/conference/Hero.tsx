@@ -190,7 +190,7 @@ const Hero = () => {
             className="max-w-xl mx-auto mb-10 sm:mb-12 px-2"
             style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "1px", color: "rgba(120,170,255,0.45)" }}
           >
-            Organized by Dept. of AI & DS · Ajeenkya DY Patil School of Engineering, Pune
+            Organized by Dept. of E & TC and AI & DS Engineering · Ajeenkya DY Patil School of Engineering, Pune
           </p>
 
           {/* Countdown */}

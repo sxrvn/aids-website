@@ -120,7 +120,7 @@ const Footer = () => {
           style={{ borderTop: "1px solid rgba(100,180,255,0.1)" }}
         >
           <p style={{ color: "rgba(120,170,255,0.35)", fontSize: "11px", letterSpacing: "0.5px" }}>
-            © 2026 ICNIEE. Dept. of AI &amp; DS, Ajeenkya DY Patil School of Engineering, Pune. All rights reserved.
+            © 2026 ICNIEE. Dept. of E & TC and AI & DS Engineering, Ajeenkya DY Patil School of Engineering, Pune. All rights reserved.
           </p>
         </div>
       </div>
