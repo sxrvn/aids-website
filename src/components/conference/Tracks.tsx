@@ -30,7 +30,7 @@ const Tracks = () => (
           className="mt-4 max-w-lg mx-auto"
           style={{ color: "rgba(180,210,255,0.5)", fontSize: "13px", fontWeight: 300, lineHeight: 1.7 }}
         >
-          Submit your research across six interdisciplinary areas of AI and Data Science
+          Submit your research across our interdisciplinary areas of Engineering and Technology
         </p>
       </motion.div>
 

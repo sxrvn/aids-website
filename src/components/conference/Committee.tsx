@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import {
-  chiefPatron, patrons, conferenceDirector, advisoryCommittee,
+  chiefPatron, patrons, conferenceDirector, internationalAdvisoryBoard, nationalAdvisoryBoard,
   conveners, coConveners, coordinators, organizingCommittee,
 } from "@/data/conferenceData";
 import { Crown, Users, BookOpen, UserCheck, User, Star } from "lucide-react";
@@ -156,13 +156,10 @@ const Committee = () => (
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 sm:mb-10">
         <div className="flex items-center gap-1.5 mb-3 sm:mb-4 justify-center">
           <BookOpen size={15} style={{ color: "#5bc8ff" }} />
-          <h3 className="font-bold whitespace-nowrap" style={{ color: "#fff", fontSize: "14px", letterSpacing: "-0.1px" }}>Advisory Committee</h3>
+          <h3 className="font-bold whitespace-nowrap" style={{ color: "#fff", fontSize: "14px", letterSpacing: "-0.1px" }}>International Advisory Board</h3>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-5xl mx-auto">
-          {advisoryCommittee.map((a, i) => (
-            <PersonCard key={i} name={a.name} title={a.affiliation} />
-          ))}
-        </div>
+          {internationalAdvisoryBoard.map((a, i) => (<PersonCard key={i} name={a.name} title={a.affiliation} />))}</div></motion.div><motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 sm:mb-10"><div className="flex items-center gap-1.5 mb-3 sm:mb-4 justify-center"><BookOpen size={15} style={{ color: "#5bc8ff" }} /><h3 className="font-bold whitespace-nowrap" style={{ color: "#fff", fontSize: "14px", letterSpacing: "-0.1px" }}>National Advisory Board</h3></div><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-5xl mx-auto">{nationalAdvisoryBoard.map((a, i) => (<PersonCard key={i} name={a.name} title={a.affiliation} />))}</div>
       </motion.div>
 
       {/* Organizing */}

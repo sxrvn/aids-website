@@ -81,14 +81,14 @@ const Submission = () => (
               }}
             >
               <ExternalLink size={16} strokeWidth={2} />
-              Submit via Microsoft CMT
+              Submit via Google Form
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
             </a>
             <p
               className="text-center break-all"
               style={{ color: "rgba(120,170,255,0.45)", fontSize: "11px", letterSpacing: "1px" }}
             >
-              All submissions are securely managed by Microsoft CMT.
+              All submissions are managed via Google Forms.
             </p>
           </div>
         </motion.div>

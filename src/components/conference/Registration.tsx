@@ -63,7 +63,7 @@ const Registration = () => (
           style={{ color: "rgba(180,210,255,0.6)", fontSize: "14px", fontWeight: 300, lineHeight: 1.8 }}
         >
           Join researchers, academics, and industry professionals at ICNIEE 2026 in Pune, India. 
-          Be part of the next wave of Artificial Intelligence and Data Science.
+          Be part of the next wave of Innovation and Engineering Excellence.
         </p>
         <a
           href={contactInfo.registrationLink}

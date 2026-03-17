@@ -92,7 +92,7 @@ const About = () => (
             className="mt-4 italic"
             style={{ color: "rgba(120,170,255,0.5)", fontSize: "12px", fontWeight: 300, lineHeight: 1.6 }}
           >
-            "To Become Center of Excellence in Artificial Intelligence &amp; Data Science Upholding Social Values"
+            "To Become Center of Excellence in Engineering &amp; Technology Upholding Social Values"
           </p>
         </motion.div>
       </div>
