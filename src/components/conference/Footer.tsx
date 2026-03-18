@@ -119,6 +119,9 @@ const Footer = () => {
           className="pt-8 text-center"
           style={{ borderTop: "1px solid rgba(100,180,255,0.1)" }}
         >
+          <p className="mt-4 mb-8" style={{ color: "rgba(120,170,255,0.35)", fontSize: "11px", letterSpacing: "0.5px" }}>
+            The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses to run the service, including costs for Azure cloud services as well as for software development and support.
+          </p>
           <p style={{ color: "rgba(120,170,255,0.35)", fontSize: "11px", letterSpacing: "0.5px" }}>
             © 2026 ICNIEE. Dept. of E & TC and AI & DS Engineering, Ajeenkya DY Patil School of Engineering, Pune. All rights reserved.
           </p>
