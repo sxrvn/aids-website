@@ -128,7 +128,7 @@ export const contactInfo = {
   address: "Dr. DY Patil Technical Campus Lohegaon, Charholi (Bk), Via Lohegaon, Pune, Maharashtra, India. (020-35037922)",
   registrationLink: "https://forms.gle/NTYoNtAsQXCZXr8Y6",
   brochureLink: "/brochure.pdf",
-  cmtLink: "https://forms.gle/NTYoNtAsQXCZXr8Y6",
+  cmtLink: "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICNIEE2026",
 };
 
 export const aboutConference = "This conference provides an international forum to bring together researchers, developers, academicians, scientists, engineers and solutions to exchange their valuable ideas and showcase the ongoing works that may lead to the path-breaking foundation of futuristic engineering. The aim of this conference is: To provide a platform for presenting and discussing the latest research, innovations, and technological advancements across various fields. To Encourage networking and partnerships between academia, industry professionals, and researchers to drive interdisciplinary and practical solutions. To Showcase and explore emerging trends and breakthrough technologies in science, engineering, and technology. To Offer opportunities for students and early-career researchers to present their work, gain valuable feedback, and engage with experts.";
