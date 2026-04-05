@@ -121,6 +121,31 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center"
         >
+          {/* Announcement Banner — Extended Deadline */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full mb-4"
+            style={{
+              background: "rgba(255,160,0,0.12)",
+              border: "1.5px solid rgba(255,180,0,0.45)",
+              backdropFilter: "blur(12px)",
+              boxShadow: "0 0 24px rgba(255,160,0,0.2), inset 0 1px 0 rgba(255,220,100,0.1)",
+            }}
+          >
+            <span
+              className="pulse-dot shrink-0"
+              style={{ background: "#ffb300", boxShadow: "0 0 8px 2px rgba(255,180,0,0.7)" }}
+            />
+            <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "1px", color: "#ffd54f", textTransform: "uppercase" }}>
+              📢&nbsp; Deadline Extended:
+            </span>
+            <span style={{ fontSize: "12px", fontWeight: 600, color: "rgba(255,220,120,0.9)" }}>
+              &nbsp;Paper Submission extended to <strong style={{ color: "#ffe082" }}>10th April 2026</strong>
+            </span>
+          </motion.div>
+
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
