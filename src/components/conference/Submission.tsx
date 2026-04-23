@@ -67,6 +67,18 @@ const Submission = () => (
             ))}
           </div>
 
+          <div
+            className="mb-8 p-3 rounded-lg text-center"
+            style={{
+              background: "rgba(255,50,50,0.08)",
+              border: "1px solid rgba(255,50,50,0.2)",
+            }}
+          >
+            <p style={{ color: "rgba(255,120,120,0.95)", fontSize: "11px", fontWeight: 500, letterSpacing: "0.5px" }}>
+              Note: Once Registration Fees is paid, it will not be refunded.
+            </p>
+          </div>
+
           <div className="space-y-3">
             <a
               href={contactInfo.cmtLink}

@@ -1,5 +1,5 @@
 export const importantDates = [
-  { event: "Last Date of Submission (Extended)", date: "10th April 2026", icon: "FileText" },
+  { event: "Last Date of Submission", date: "3rd April 2026", icon: "FileText" },
   { event: "Notification of Status of Paper", date: "Within 10 days after receiving the Paper", icon: "CheckCircle" },
   { event: "Registration (Submission of Fee)", date: "Within 5 working days from the date of acceptance", icon: "UserPlus" },
   { event: "Date of Conference", date: "27th & 28th April 2026 (Hybrid Mode)", icon: "Calendar" },
